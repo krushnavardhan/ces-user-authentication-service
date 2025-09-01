@@ -34,5 +34,10 @@ public class RegistrationController {
 	public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
 		return ResponseEntity.ok(service.authenticate(request));
 	}
+	
+	@PostMapping("/validateToken")
+	public ResponseEntity<Boolean> validateToken(@RequestBody AuthenticationResponse response) {
+		return ResponseEntity.ok(service.isTokenValid(response));
+	}
 
 }
